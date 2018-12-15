@@ -25,6 +25,7 @@ function encode(value: mixed, disallowObjects: boolean, forcePointers: boolean, 
       throw new Error('Parse Objects not allowed here');
     }
     var seenEntry = value.id ? value.className + ':' + value.id : value;
+    var seen = Array.isArray(seen)? seen: [seenEntry];
     if (forcePointers ||
       !seen ||
       seen.indexOf(seenEntry) > -1 ||
